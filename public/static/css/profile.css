@@ -1,0 +1,12 @@
+section {
+  position: absolute;
+  text-align: center;
+  width: 250px;
+  height: 500px;
+  z-index: 0;
+  top: 25%;
+  left: 50%;
+  margin: -125px 0 0 -200px;
+  border: 4px solid black;
+  
+}

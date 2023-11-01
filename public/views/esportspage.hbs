@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <link href="css/esports.css" rel="stylesheet" type="text/css">
+    <link href="css/hPage.css" rel="stylesheet" type="text/css">
+    <ul id="nav"> 
+    <li><a href="https://user.tjhsst.edu/2023mli1/" class="hbutton">Home</a></li>
+    <li><a href="https://user.tjhsst.edu/2023mli1/mlib" class="menuoption">Madlib</a></li>
+    <li><a href="https://user.tjhsst.edu/2023mli1/0" class="menuoption">NumFacts</a></li>
+    <li><a href="https://user.tjhsst.edu/2023mli1/weatherForm" class="menuoption">WeatherForm</a></li>
+    <li><a href="https://user.tjhsst.edu/2023mli1/votes" class="menuoption">Votes</a></li>
+    <li><a href="https://user.tjhsst.edu/2023mli1/cclicker" class="menuoption">Cookie Clicker</a></li>
+    <li><a href="https://user.tjhsst.edu/2023mli1/esports" class="menuoption">Esports</a></li>
+    <li><a href="https://user.tjhsst.edu/2023mli1/fools" class="menuoption">lofi</a></li>
+    </ul>
+    <title>The Esports Voting Page</title>
+<body>
+    <h1>Hi {{nick}}!</h1>
+    <h3>Give Points to These Esports Players</h3>
+    
+    <div>
+    <section>
+    <h3>Show Team Members</h3>
+    <label for="team">
+        Team Name:
+    </label>
+    <input id="team">
+    <button type="button" onclick="fetchFromServer2()">Submit</button>
+    <p id="response_area2"></p>
+    </section>
+    
+    
+    <section>
+    <h3>Show Player</h3>
+    <label for="player_name">
+        Player Name:
+    </label>
+    <input id="player_name">
+    <button type="button" onclick="fetchFromServer3()">Submit</button>
+    <p id="response_area3"></p>
+    </section>
+    
+    <section>
+    <h3>Show Player Point History</h3>
+    <label for="player_history">
+        Player Name:
+    </label>
+    <input id="player_history">
+    <button type="button" onclick="fetchFromServer4()">Submit</button>
+    <p id="response_area4"></p>
+    </section>
+    
+    <section>
+    <h3>Add Member</h3>
+    <h4>Team ID 100 - B Team<br>
+    Team ID 101 - 100 Thieves<br>
+    Team ID 102 - Envy Gaming<br>
+    Team ID 103 - Sentinels<br>
+    Team ID 104 - Plinsters<br>
+    Team ID 105 - NA Free Agent<br>
+    Team ID 106 - EU Free Agent</h4>
+    
+    <h4>Rank ID 200 - Radiant<br>
+    Rank ID 201 - Immortal<br>
+    Rank ID 202 - Diamond<br>
+    Rank ID 203 - Platinum<br>
+    Rank ID 204 - Gold<br>
+    Rank ID 205 - Plastic</h4>
+    
+    
+    <label for="team_id">
+        Team ID:
+    </label>
+    <input id="team_id">
+    <br>
+    <label for="player_name2">
+        Player Name:
+    </label>
+    <input id="player_name2">
+    <br>
+    <label for="rank_id">
+        Rank ID:
+    </label>
+    <input id="rank_id">
+    <br>
+    <button type="button" onclick="fetchFromServer5()">Submit</button>
+    <p id="response_area5"></p>
+    </section>
+    
+    <section>
+    <h3>Add Points<br>(+ for add/- for subtract)</h3>
+    <label for="player_name3">
+        Player Name:
+    </label>
+    <input id="player_name3">
+    <br>
+    <label for="cscredit">
+        Points:
+    </label>
+    <input id="cscredit">
+    <br>
+    <button type="button" onclick="fetchFromServer6()">Submit</button>
+    <p id="response_area6"></p>
+    </section>
+    
+    <section>
+        <h3>Show Sum of Points</h3>
+        <h4>Note: when adding points, you have to press the button again</h4>
+        <button type="button" onclick="fetchFromServer7()">By Team</button>
+        <button type="button" onclick="fetchFromServer8()">By Player</button>
+    <p id="response_area7"></p>
+        
+    </section>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+function fetchFromServer() {
+    var ajax_params = {
+        'url'     : "https://user.tjhsst.edu/2023mli1/ajax_thing",
+        'type'    : "get",
+        'success' : onServerResponse    // the name of the callback function to call
+    }
+    $.ajax( ajax_params )
+}
+function onServerResponse (responseObject) {
+    console.log(responseObject)
+    document.getElementById('response_area').innerHTML = responseObject.count;
+}
+
+
+
+function fetchFromServer2() {
+    var ajax_params = {
+        'data'    : {
+                        team:$("#team").val()
+                    },
+        'url'     : `https://user.tjhsst.edu/2023mli1/sql_ajax_get_team`,
+        'type'    : "get",
+        'success' : onServerResponse2    // the name of the callback function to call
+    }
+    $.ajax( ajax_params )
+}
+function onServerResponse2 (responseObject) {
+    console.log(responseObject)
+    document.getElementById('response_area2').innerHTML = responseObject;
+}
+
+
+
+function fetchFromServer3() {
+    var ajax_params = {
+        'data'    : {
+                        player:$("#player_name").val()
+                    },
+        'url'     : `https://user.tjhsst.edu/2023mli1/sql_ajax_get_player`,
+        'type'    : "get",
+        'success' : onServerResponse3    // the name of the callback function to call
+    }
+    $.ajax( ajax_params )
+}
+function onServerResponse3 (responseObject) {
+    console.log(responseObject)
+    document.getElementById('response_area3').innerHTML = responseObject;
+}
+
+
+
+function fetchFromServer4() {
+    var ajax_params = {
+        'data'    : {
+                        player:$("#player_history").val()
+                    },
+        'url'     : `https://user.tjhsst.edu/2023mli1//sql_ajax_get_history`,
+        'type'    : "get",
+        'success' : onServerResponse4    // the name of the callback function to call
+    }
+    $.ajax( ajax_params )
+}
+function onServerResponse4 (responseObject) {
+    console.log(responseObject)
+    document.getElementById('response_area4').innerHTML = responseObject;
+}
+
+
+
+function fetchFromServer5() {
+    var ajax_params = {
+        'data'    : {
+                        team:$("#team_id").val(),
+                        player:$("#player_name2").val(),
+                        rank:$("#rank_id").val()
+                    },
+        'url'     : `https://user.tjhsst.edu/2023mli1//sql_ajax_add_player`,
+        'type'    : "get",
+        'success' : onServerResponse5    // the name of the callback function to call
+    }
+    $.ajax( ajax_params )
+}
+function onServerResponse5 (responseObject) {
+    console.log(responseObject)
+    document.getElementById('response_area5').innerHTML = responseObject;
+}
+
+
+
+function fetchFromServer6() {
+    var ajax_params = {
+        'data'    : {
+                        points:$("#cscredit").val(),
+                        player:$("#player_name3").val(),
+                    },
+        'url'     : `https://user.tjhsst.edu/2023mli1/sql_ajax_add_points`,
+        'type'    : "get",
+        'success' : onServerResponse6    // the name of the callback function to call
+    }
+    $.ajax( ajax_params )
+}
+function onServerResponse6 (responseObject) {
+    console.log(responseObject)
+    document.getElementById('response_area6').innerHTML = responseObject;
+}
+
+
+
+function fetchFromServer7() {
+    var ajax_params = {
+        'url'     : `https://user.tjhsst.edu/2023mli1/sql_ajax_team_sum`,
+        'type'    : "get",
+        'success' : onServerResponse7    // the name of the callback function to call
+    }
+    $.ajax( ajax_params )
+}
+function fetchFromServer8() {
+    var ajax_params = {
+        'url'     : `https://user.tjhsst.edu/2023mli1/sql_ajax_player_sum`,
+        'type'    : "get",
+        'success' : onServerResponse7    // the name of the callback function to call
+    }
+    $.ajax( ajax_params )
+}
+function onServerResponse7 (responseObject) {
+    console.log(responseObject)
+    document.getElementById('response_area7').innerHTML = responseObject;
+}
+
+</script>
+</body>
+</html>

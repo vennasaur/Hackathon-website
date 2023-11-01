@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Weather Page ;)</title>
+	<link href="css/hPage.css" rel="stylesheet" type="text/css">
+<ul id="nav"> 
+<li><a href="https://user.tjhsst.edu/2023mli1/" class="hbutton">Home</a></li>
+<li><a href="https://user.tjhsst.edu/2023mli1/mlib" class="menuoption">Madlib</a></li>
+<li><a href="https://user.tjhsst.edu/2023mli1/0" class="menuoption">NumFacts</a></li>
+<li><a href="https://user.tjhsst.edu/2023mli1/weatherForm" class="menuoption">WeatherForm</a></li>
+<li><a href="https://user.tjhsst.edu/2023mli1/votes" class="menuoption">Votes</a></li>
+<li><a href="https://user.tjhsst.edu/2023mli1/cclicker" class="menuoption">Cookie Clicker</a></li>
+<li><a href="https://user.tjhsst.edu/2023mli1/fools" class="menuoption">lofi</a></li>
+</ul>
+</head>
+<body>
+	<h1>Weather Forecast</h1>
+		<div>
+		<p>Looking at location: {{lat}}, {{long}}</p>    
+		<ul>
+		    {{#each temp}}
+		    <li>{{this.detailedForecast}}</li>
+		    {{/each}}
+		</ul>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<table id="tablelist">
+    <tr>
+        <th>Team ID</th>
+        <th>Team Name</th>
+        <th>Location</th>
+        <th>Player Tag</th>
+        <th>Rank</th>
+        <th>Pro?</th>
+    </tr>
+    {{#each results}}
+    <tr>
+        <td>{{team_id}}</td>
+        <td>{{house_name}}</td>
+        <td>{{location}}</td>
+        <td>{{person_name}}</td>
+        <td>{{rank_name}}</td>
+        <td>{{pro}}</td>
+    </tr>
+    {{/each}}
+</table>
