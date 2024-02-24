@@ -77,7 +77,12 @@ function(req,res){
     
 //     ]
     
-//routes.forEach((route) => {app.use(require(route))});
+routes = [
+    './routes/svgmap.js',
+    './routes/numFacts.js'
+    
+    ]
+routes.forEach((route) => {app.use(require(route))});
 
 
 
