@@ -57,7 +57,7 @@ console.log('-------------------------------------------------------------------
 app.get('/', 
 function(req,res){
     //var sql = 'SELECT count FROM pagevisits;'
-        res.render('index')
+        res.render('zoom_state')
 });
 
 
@@ -77,12 +77,12 @@ function(req,res){
     
 //     ]
     
-routes = [
-    './routes/svgmap.js',
-    './routes/numFacts.js'
+// routes = [
+//     './routes/svgmap.js',
+//     './routes/numFacts.js'
     
-    ]
-routes.forEach((route) => {app.use(require(route))});
+//     ]
+// routes.forEach((route) => {app.use(require(route))});
 
 
 
