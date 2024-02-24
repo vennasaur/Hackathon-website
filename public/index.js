@@ -57,7 +57,7 @@ console.log('-------------------------------------------------------------------
 app.get('/', 
 function(req,res){
     //var sql = 'SELECT count FROM pagevisits;'
-        res.render('index')
+        res.render('zoom_state')
 });
 
 
